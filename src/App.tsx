@@ -42,7 +42,7 @@ function App() {
             Video Prompt Improver
           </h1>
           <p className="text-slate-400 mt-2">
-            Create prompts for 10-hour ambient YouTube videos with Veo 3.1
+            Create loopable video clip prompts for Veo 3.1
           </p>
         </header>
 
