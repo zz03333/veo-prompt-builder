@@ -1,4 +1,4 @@
-import type { CategoryConfig } from '../types'
+import type { CategoryConfig, MusicCategoryConfig } from '../types'
 
 export const categories: CategoryConfig[] = [
   {
@@ -166,3 +166,110 @@ export const categories: CategoryConfig[] = [
 ]
 
 export const categoryMap = new Map(categories.map((c) => [c.id, c]))
+
+// Music categories for Suno
+export const musicCategories: MusicCategoryConfig[] = [
+  {
+    id: 'genre',
+    label: 'Genre',
+    placeholder: 'e.g., Chillwave',
+    presets: [
+      'Ambient',
+      'Lo-fi hip hop',
+      'Chillwave',
+      'New Age',
+      'Classical minimalist',
+      'Jazz lounge',
+      'Electronic downtempo',
+      'Acoustic folk',
+      'Cinematic orchestral',
+      'Nature soundscape',
+      'Meditation music',
+      'Space ambient',
+    ],
+  },
+  {
+    id: 'tempo',
+    label: 'Tempo',
+    placeholder: 'e.g., 70 BPM gentle',
+    presets: [
+      'Very slow, 50-60 BPM',
+      'Slow and relaxed, 60-70 BPM',
+      'Gentle pace, 70-80 BPM',
+      'Moderate calm, 80-90 BPM',
+      'No beat, free-flowing',
+      'Breathing rhythm tempo',
+      'Heartbeat pace, 60 BPM',
+    ],
+  },
+  {
+    id: 'instruments',
+    label: 'Instruments',
+    placeholder: 'e.g., Piano and strings',
+    presets: [
+      'Soft piano',
+      'Ambient synth pads',
+      'Acoustic guitar fingerpicking',
+      'String quartet',
+      'Ethereal vocals (no lyrics)',
+      'Flute and harp',
+      'Gentle Rhodes piano',
+      'Wind chimes and bells',
+      'Cello solo',
+      'Synthesizer arpeggios',
+      'Rain and nature sounds mixed',
+      'Tibetan singing bowls',
+    ],
+  },
+  {
+    id: 'vibe',
+    label: 'Vibe',
+    placeholder: 'e.g., Dreamy and floating',
+    presets: [
+      'Peaceful and calming',
+      'Dreamy and floating',
+      'Melancholic but beautiful',
+      'Warm and cozy',
+      'Mysterious and deep',
+      'Uplifting yet gentle',
+      'Nostalgic and wistful',
+      'Ethereal and otherworldly',
+      'Meditative and focused',
+      'Romantic and tender',
+    ],
+  },
+]
+
+export const musicCategoryMap = new Map(musicCategories.map((c) => [c.id, c]))
+
+// Mood to music suggestions mapping
+export const moodToMusicMap: Record<string, { genre: string; vibe: string; instruments: string }> = {
+  'Calm and peaceful': { genre: 'Ambient', vibe: 'Peaceful and calming', instruments: 'Soft piano' },
+  'Dreamy and ethereal': { genre: 'Chillwave', vibe: 'Dreamy and floating', instruments: 'Ambient synth pads' },
+  'Mysterious and enchanting': { genre: 'Space ambient', vibe: 'Mysterious and deep', instruments: 'Synthesizer arpeggios' },
+  'Serene and meditative': { genre: 'Meditation music', vibe: 'Meditative and focused', instruments: 'Tibetan singing bowls' },
+  'Cozy and comforting': { genre: 'Lo-fi hip hop', vibe: 'Warm and cozy', instruments: 'Gentle Rhodes piano' },
+  'Melancholic and gentle': { genre: 'Classical minimalist', vibe: 'Melancholic but beautiful', instruments: 'Cello solo' },
+  'Mystical and otherworldly': { genre: 'New Age', vibe: 'Ethereal and otherworldly', instruments: 'Flute and harp' },
+  'Tranquil and soothing': { genre: 'Nature soundscape', vibe: 'Peaceful and calming', instruments: 'Rain and nature sounds mixed' },
+  'Contemplative and quiet': { genre: 'Acoustic folk', vibe: 'Nostalgic and wistful', instruments: 'Acoustic guitar fingerpicking' },
+  'Romantic and soft': { genre: 'Jazz lounge', vibe: 'Romantic and tender', instruments: 'Soft piano' },
+}
+
+// Scene to sound elements mapping
+export const sceneToSoundMap: Record<string, string> = {
+  'rainforest': 'subtle rain and distant bird calls',
+  'ocean': 'gentle wave sounds',
+  'mountain': 'wind and distant echoes',
+  'space': 'deep space drones',
+  'forest': 'rustling leaves and birdsong',
+  'desert': 'wind across sand',
+  'underwater': 'muffled aquatic sounds',
+  'fireplace': 'crackling fire sounds',
+  'rain': 'rain on glass',
+  'waterfall': 'flowing water ambience',
+  'aurora': 'ethereal cosmic tones',
+  'cherry': 'gentle wind',
+  'bamboo': 'bamboo wind chimes',
+  'zen': 'meditation bells',
+}
