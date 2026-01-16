@@ -8,7 +8,7 @@ export function formatPrompt(selections: Selections): string {
   }
 
   const lines: string[] = [
-    'Create a seamless looping video for a 10-hour ambient YouTube video.',
+    'Generate a short 8-second video clip that loops perfectly (first frame matches last frame).',
     '',
   ]
 
@@ -28,9 +28,7 @@ export function formatPrompt(selections: Selections): string {
     lines.push(`Lighting: ${selections.lighting}`)
   }
   if (selections.movement) {
-    lines.push(
-      `Movement: ${selections.movement} - keep movement minimal and smooth for seamless looping`
-    )
+    lines.push(`Movement: ${selections.movement}`)
   }
   if (selections.weather) {
     lines.push(`Weather: ${selections.weather}`)
@@ -43,12 +41,25 @@ export function formatPrompt(selections: Selections): string {
   }
 
   lines.push('')
-  lines.push(
-    'Important: The video must loop seamlessly with no jarring transitions.'
-  )
-  lines.push(
-    'Movement should be slow and hypnotic, suitable for relaxation and sleep.'
-  )
+  lines.push('CRITICAL for looping:')
+  lines.push('- Camera must return to exact starting position by end of clip')
+  lines.push('- Any movement must complete a full cycle (wave in, wave out)')
+  lines.push('- Lighting and colors must be identical at start and end')
+  lines.push('- No sudden changes - all motion is slow, continuous, cyclical')
+  lines.push('- Perfect for seamless loop when repeated')
 
   return lines.join('\n')
+}
+
+export function formatWorkflowTips(): string {
+  return `WORKFLOW FOR 10-HOUR VIDEO:
+
+1. Generate 3-5 clips with this same prompt
+2. In video editor, trim each clip to find best loop point
+3. Cross-dissolve between clips (0.5s) for variety
+4. Or: use single best clip on infinite loop
+5. Export at 1080p/4K for YouTube
+
+TIP: Generate variations by slightly changing Scene or Weather
+while keeping other settings identical for consistent style.`
 }
